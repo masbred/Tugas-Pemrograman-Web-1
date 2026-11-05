@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <title>Muhammad Fathal Mustaqim</title>
+
+    <style>
+      body {
+        background-image: url(bg.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      .kartu-interaksi {
+        color: #1b2a41;
+        border: 2px solid #1b2a41;
+        border-radius: 4px;
+        box-shadow: 6px 6px 0 #1b2a41;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><span>Muhammad Fathal Mustaqim</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-targer="#mynavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kategori</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" />
+            <button class="btn btn-primary" type="button">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-section">
+      <h1 class="text-white">MUHAMMAD FATHAL MUSTAQIM</h1>
+
+      <div class="row">
+        <p class="fs-5 text-white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+          cupiditate consequuntur dolore iure, voluptatibus enim eveniet
+          distinctio, optio officia unde exercitationem! Quis quia numquam
+          ducimus natus dicta. Nulla, illo aspernatur.
+        </p>
+      </div>
+      <div class="row">
+        <p class="fs-5 text-white">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
+          aperiam quo reiciendis porro facilis maxime, magni qui impedit ad
+          tenetur iure assumenda accusantium beatae voluptas laudantium facere
+          hic repellendus voluptates!
+        </p>
+      </div>
+      <div class="row">
+        <p class="fs-5 text-white">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam
+          cumque non optio doloremque quis ipsam quaerat eius aperiam sit
+          provident, delectus aspernatur repudiandae, illum consectetur
+          doloribus consequatur id, enim eveniet?
+        </p>
+      </div>
+    </div>
+
+    <section class="card kartu-interaksi mt-5">
+        <div class="card-body p-4">
+            <button id="tombol" type="button" class="btn btn-primary fw-semibold">
+                Tampilkan tanggal dan jam
+            </button>
+            <p id="hasil" class="fw-semibold mt-3 mb-0" aria-live="polite">
+                klik Tomboh Untuk Melihat Waktu Sekarang
+            </p>
+        </div>
+    </section>
+
+    <script lang="JavaScript">
+        const tombol = document.getElementById("tombol");
+        const hasil = document.getElementById("hasil");
+
+        function welcome(jam) {
+            if (jam < 11) return "Selamat Pagi";
+            if (jam < 15) return "Selamat Siang";
+            if (jam < 18) return "Selamat Sore";
+            return "Selamat Malam";
+        }
+        
+        tombol.addEventListener("click", function() {
+            
+            const sekarang = new Date();
+            const tanggal = sekarang.toLocaleDateString("id-ID", {
+                weekday: "long", day: "numeric", month: "long", year: "numeric"
+            });
+
+            const jam = sekarang.toLocaleTimeString ("id-ID", {
+                hour: "2-digit", minute: "2-digit", second: "2-digit"
+            });
+
+            hasil.textContent = welcome(sekarang.getHours()) + "! sekarang " + tanggal + ", Pukul " + jam + ".";
+
+            tombol.textContent = "Perbarui Waktu";
+        });
+
+    </script>
+  </body>
+</html>
